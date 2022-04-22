@@ -11,7 +11,7 @@ Petclinic is a [Spring Boot](https://spring.io/guides/gs/spring-boot) applicatio
 git clone https://github.com/spring-projects/spring-petclinic.git
 cd spring-petclinic
 ./mvnw package
-java -jar target/*.jar
+java -jar target/*.jar   This command is used to create a jar file
 ```
 
 You can then access petclinic here: http://localhost:8080/
