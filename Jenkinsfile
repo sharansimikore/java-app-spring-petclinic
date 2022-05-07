@@ -32,7 +32,6 @@ pipeline {
             
             
             
-            
             stage('DOCKERIZE') {
             steps {
                 echo 'Deploy the code'
