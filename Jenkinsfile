@@ -2,7 +2,7 @@
 pipeline {
     
     environment {
-    imagename = "sharan/petclinics"
+    imagename = "ssimikore/petclinics"
     registryCredential = 'Dockerhubid'
     dockerImage = ''
   }
