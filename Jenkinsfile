@@ -37,6 +37,21 @@ pipeline {
         
       }
     }
+        
+        stage('DOCKERIZE') {
+            steps {
+                echo 'Deploy the code'
+                
+                script {
+                    
+                     dockerImage = docker.build "${IMAGE_REPO_NAME}:${IMAGE_TAG}"
+                    # dockerImage = docker.build imagename 
+                    
+                }
+                    
+            } 
+                
+            } 
    
     // Uploading Docker images into AWS ECR
     stage('Pushing to ECR') {
