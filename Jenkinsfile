@@ -1,9 +1,9 @@
 pipeline {
     agent any
     environment {
-        AWS_ACCOUNT_ID="YOUR_ACCOUNT_ID_HERE"
-        AWS_DEFAULT_REGION="CREATED_AWS_ECR_CONTAINER_REPO_REGION" 
-        IMAGE_REPO_NAME="ECR_REPO_NAME"
+        AWS_ACCOUNT_ID="325682424908"
+        AWS_DEFAULT_REGION="us-east-1" 
+        IMAGE_REPO_NAME="jenkins-pipeline-build-demo"
         IMAGE_TAG="IMAGE_TAG"
         REPOSITORY_URI = "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${IMAGE_REPO_NAME}"
     }
@@ -21,7 +21,10 @@ pipeline {
         
         stage('Cloning Git') {
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '', url: 'https://github.com/sd031/aws_codebuild_codedeploy_nodeJs_demo.git']]])     
+                echo 'clonning Repository'
+                git branch: 'main', url: 'https://github.com/sharansimikore/java-app-spring-petclinic.git'
+                
+                echo 'Repo clone successfully'
             }
         }
   
