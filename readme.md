@@ -47,7 +47,7 @@ docker run -e MYSQL_USER=petclinic -e MYSQL_PASSWORD=petclinic -e MYSQL_ROOT_PAS
 
 Further documentation is provided [here](https://github.com/spring-projects/spring-petclinic/blob/main/src/main/resources/db/mysql/petclinic_db_setup_mysql.txt).
 
-## Working with Petclinic in your IDE
+## Working with Petclinic in Your IDE
 
 ### Prerequisites
 The following items should be installed in your system:
