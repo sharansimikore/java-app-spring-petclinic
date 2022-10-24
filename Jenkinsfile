@@ -9,5 +9,15 @@ pipeline {
                 echo 'Git CLoned successfully'
             }
         }
+        
+        
+        stage('Build') {
+            steps {
+                sh './mvnw package'
+                echo 'Build successfully'
+            }
+        }
+   
+    
     }
 }
