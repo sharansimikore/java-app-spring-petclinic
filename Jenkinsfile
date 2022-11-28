@@ -9,19 +9,15 @@ pipeline {
     agent any
 
     stages {
-        
-        
-        
+                
         stage('git') {
             steps {
                 echo 'clonning Repository'
                 git branch: 'main', url: 'https://github.com/sharansimikore/java-app-spring-petclinic.git'
                 
                 echo 'Repo clone successfully'
-            }
-            
+            }     
         }
-        
         
        stage('BUILD') {
             steps {
@@ -30,9 +26,7 @@ pipeline {
             }
        }
             
-            
-            
-            stage('DOCKERIZE') {
+        stage('DOCKERIZE') {
             steps {
                 echo 'Deploy the code'
                 
@@ -40,15 +34,11 @@ pipeline {
                     
                      dockerImage = docker.build imagename 
                     
-                }
-                  
-                
-            } 
-                
+                       }
+                   } 
             }  
-            
-            
-            stage('push') {
+               
+         stage('push') {
             steps {
                 echo 'push image'
                 script{
@@ -56,17 +46,11 @@ pipeline {
                  docker.withRegistry( '', registryCredential ) {
                   dockerImage.push("$BUILD_NUMBER")
                   dockerImage.push('latest')
-                 }}
-
+                 }
+                }
           }
-                
-                
-                
-                
+                    
             }
-        
-        
-        
         
         
         stage('Remove Unused docker image') {
